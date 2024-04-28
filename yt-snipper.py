@@ -68,6 +68,7 @@ def download_and_cut_video_ffmpeg(link, start_hours, start_minutes, start_second
         
         command = [
             'ffmpeg',
+            '-y',  # Automatically overwrite existing files
             '-ss', start_time,  # Start time
             '-i', video_url,    # Input URL
             '-t', str(duration_seconds),  # Duration to cut
@@ -123,7 +124,7 @@ start_hour_entry = tk.Entry(start_time_frame, width=3)
 start_hour_entry.pack(side=tk.LEFT)
 
 tk.Label(start_time_frame, text=":").pack(side=tk.LEFT)
-start_min_entry = tk.Entry(start_time_frame, width=3)  # Corrected the comma here
+start_min_entry = tk.Entry(start_time_frame, width=3)
 start_min_entry.pack(side=tk.LEFT)
 
 tk.Label(start_time_frame, text=":").pack(side=tk.LEFT)
